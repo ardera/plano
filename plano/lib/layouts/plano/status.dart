@@ -7,14 +7,12 @@ class TrayStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TrayStatusReception(),
-          TrayStatusBluetooth(),
-        ],
-      ),
+    return const Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TrayStatusReception(),
+        TrayStatusBluetooth(),
+      ],
     );
   }
 }

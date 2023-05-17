@@ -21,21 +21,19 @@ class Stage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Consumer<SceneStore>(
-        builder: (context, scene, child) {
-          return IndexedStack(
-            index: scene.index,
-            children: const [
-              SettingsScene(),
-              VehicleScene(),
-              TelephonyScene(),
-              AudioScene(),
-              NavigationScene(),
-            ],
-          );
-        },
-      ),
+    return Consumer<SceneStore>(
+      builder: (context, scene, child) {
+        return IndexedStack(
+          index: scene.index,
+          children: const [
+            SettingsScene(),
+            VehicleScene(),
+            TelephonyScene(),
+            AudioScene(),
+            NavigationScene(),
+          ],
+        );
+      },
     );
   }
 }

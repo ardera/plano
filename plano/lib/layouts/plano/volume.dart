@@ -47,13 +47,14 @@ class VolumeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final bottomAppBarTheme = BottomAppBarTheme.of(context);
+
     return Container(
       height: 52,
       width: 52,
       margin: const EdgeInsets.only(right: 15),
       child: Material(
-        color: theme.bottomAppBarColor,
+        color: bottomAppBarTheme.color,
         child: InkWell(
           onTap: () {
             action();

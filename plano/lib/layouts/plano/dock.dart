@@ -28,7 +28,7 @@ class Dock extends StatelessWidget {
       ];
 
       return Container(
-        color: Theme.of(context).bottomAppBarColor,
+        color: BottomAppBarTheme.of(context).color,
         height: 100,
         child: Row(
           children:

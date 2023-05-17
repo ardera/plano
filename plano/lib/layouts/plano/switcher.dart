@@ -11,7 +11,7 @@ import 'package:plano/stores/settings.dart';
 import 'package:provider/provider.dart';
 
 class SceneSwitcher extends StatelessWidget {
-  final List<IconData> iconList = [
+  static const iconList = [
     Icons.settings_outlined,
     Icons.directions_car_outlined,
     Icons.phone_outlined,
@@ -20,6 +20,7 @@ class SceneSwitcher extends StatelessWidget {
   ];
 
   const SceneSwitcher({super.key});
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -77,7 +78,8 @@ class SwitcherButton extends StatelessWidget {
   final ThemeData theme;
   final Function action;
 
-  const SwitcherButton({super.key, 
+  const SwitcherButton({
+    super.key,
     required this.icon,
     required this.theme,
     required this.selected,
@@ -87,8 +89,11 @@ class SwitcherButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radius = BorderRadius.circular(6);
-    final background = selected ? Colors.white : theme.bottomAppBarColor;
-    final foreground = selected ? theme.bottomAppBarColor : Colors.white;
+
+    final bottomAppBarColor = BottomAppBarTheme.of(context).color;
+    final background = selected ? Colors.white : bottomAppBarColor;
+    final foreground = selected ? bottomAppBarColor : Colors.white;
+
     return SizedBox(
       height: 60,
       width: 80,

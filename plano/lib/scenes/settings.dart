@@ -52,14 +52,12 @@ class _SettingsScene extends State<SettingsScene> {
           ),
         ],
       ),
-      detail: Container(
-        child: IndexedStack(
-          index: _index,
-          children: const [
-            SettingsBluetoothDetail(),
-            SettingsAboutDetail(),
-          ],
-        ),
+      detail: IndexedStack(
+        index: _index,
+        children: const [
+          SettingsBluetoothDetail(),
+          SettingsAboutDetail(),
+        ],
       ),
     );
   }
