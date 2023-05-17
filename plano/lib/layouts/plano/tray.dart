@@ -14,7 +14,7 @@ import 'package:plano/stores/settings.dart';
 import 'package:provider/provider.dart';
 
 // Padding to edge of display
-const kPadEdge = 30.0;
+const kPadEdge = 15.0;
 
 // Padding between time and icons
 const kPadInner = 17.0;
@@ -32,7 +32,7 @@ class Tray extends StatelessWidget {
         ];
 
         return Container(
-          width: 250,
+          width: 150,
           padding: const EdgeInsets.only(left: kPadEdge, right: kPadEdge),
           child: Row(
             children:
@@ -97,11 +97,11 @@ class _TrayDateTimeState extends State<TrayDateTime> {
             children: [
               Text(
                 DateFormat('h:mm a').format(_now),
-                style: style.headlineSmall,
+                style: style.labelLarge,
               ),
               Text(
                 DateFormat('E d').format(_now).toUpperCase(),
-                style: style.titleLarge,
+                style: style.labelLarge,
               ),
             ],
           ),

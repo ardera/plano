@@ -60,8 +60,8 @@ class SceneSwitcher extends StatelessWidget {
           ),
         ];
 
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: settings.isRightHandDrive
@@ -97,8 +97,8 @@ class SwitcherButton extends StatelessWidget {
     final foreground = selected ? bottomAppBarColor : Colors.white;
 
     return SizedBox(
-      height: 60,
-      width: 80,
+      height: 40,
+      width: 40,
       child: Material(
         color: background,
         borderRadius: radius,
@@ -106,7 +106,7 @@ class SwitcherButton extends StatelessWidget {
           borderRadius: radius,
           // ignore: unnecessary_lambdas
           onTap: () => action(),
-          child: Icon(icon, color: foreground, size: 36),
+          child: Icon(icon, color: foreground, size: 30),
         ),
       ),
     );

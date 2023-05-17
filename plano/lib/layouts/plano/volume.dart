@@ -21,8 +21,8 @@ class VolumeControl extends StatelessWidget {
             : Icons.volume_up_rounded;
 
         return Container(
-          width: 250,
-          padding: const EdgeInsets.only(left: 30),
+          width: 150,
+          padding: const EdgeInsets.only(left: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -52,9 +52,9 @@ class VolumeButton extends StatelessWidget {
     final bottomAppBarTheme = BottomAppBarTheme.of(context);
 
     return Container(
-      height: 52,
-      width: 52,
-      margin: const EdgeInsets.only(right: 15),
+      height: 40,
+      width: 40,
+      margin: const EdgeInsets.only(right: 5),
       child: Material(
         color: bottomAppBarTheme.color,
         child: InkWell(
@@ -64,7 +64,7 @@ class VolumeButton extends StatelessWidget {
           child: Icon(
             icon,
             color: Colors.white,
-            size: 36,
+            size: 30,
           ),
         ),
       ),

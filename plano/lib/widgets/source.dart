@@ -14,14 +14,14 @@ class SourceWidget extends StatelessWidget {
     );
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
-      width: 336,
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      width: 200,
       color: theme.primaryColorLight,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(bottom: 50, left: 12),
+            padding: const EdgeInsets.only(bottom: 25, left: 6),
             child: Text(title, style: text),
           ),
           ...children,
@@ -53,8 +53,8 @@ class SourceButton extends StatelessWidget {
     final text = theme.textTheme.labelLarge?.copyWith(color: foreground);
 
     return Container(
-      height: 60,
-      margin: const EdgeInsets.only(bottom: 22),
+      height: 42,
+      margin: const EdgeInsets.only(bottom: 5),
       child: Material(
         color: background,
         borderRadius: radius,
@@ -63,12 +63,12 @@ class SourceButton extends StatelessWidget {
           // ignore: unnecessary_lambdas
           onTap: () => action(),
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 6),
             child: Row(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(right: 22),
-                  child: Icon(icon, color: foreground, size: 36),
+                  margin: const EdgeInsets.only(right: 11),
+                  child: Icon(icon, color: foreground, size: 18),
                 ),
                 Text(label, style: text),
               ],

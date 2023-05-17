@@ -7,7 +7,7 @@ class DetailWidget extends StatelessWidget {
 
   @override
   build(BuildContext context) {
-    const pad = 60.0;
+    const pad = 30.0;
     return Container(
       padding: const EdgeInsets.fromLTRB(pad, pad, pad, 0),
       child: child,

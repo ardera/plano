@@ -15,7 +15,7 @@ const pVolumeMuted = 'volume_muted';
 
 class SettingsStore extends ChangeNotifier {
   SettingsStore() {
-    setupPrefrences();
+    setupPreferences();
   }
 
   // Vehicle Settings
@@ -28,7 +28,7 @@ class SettingsStore extends ChangeNotifier {
   // Preferences Storage
   late SharedPreferences preferences;
 
-  void setupPrefrences() async {
+  void setupPreferences() async {
     // Load up shared preferences
     preferences = await SharedPreferences.getInstance();
 

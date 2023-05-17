@@ -39,13 +39,13 @@ class TrayStatusReception extends StatelessWidget {
         }
 
         return Container(
-          height: 24,
-          width: 24,
+          height: 15,
+          width: 15,
           margin: const EdgeInsets.only(bottom: 5),
           child: Icon(
             icon,
             color: Colors.white,
-            size: 24,
+            size: 15,
           ),
         );
       },
@@ -75,12 +75,12 @@ class TrayStatusBluetooth extends StatelessWidget {
         }
 
         return SizedBox(
-          height: 24,
-          width: 24,
+          height: 15,
+          width: 15,
           child: Icon(
             icon,
             color: Colors.white,
-            size: 24,
+            size: 15,
           ),
         );
       },

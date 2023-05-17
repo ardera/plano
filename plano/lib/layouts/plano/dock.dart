@@ -30,7 +30,7 @@ class Dock extends StatelessWidget {
 
         return Container(
           color: BottomAppBarTheme.of(context).color,
-          height: 100,
+          height: 50.0,
           child: Row(
             children: (settings.isRightHandDrive)
                 ? widgets
