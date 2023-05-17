@@ -9,7 +9,7 @@ class VehicleGaugesDetail extends StatelessWidget {
     final theme = Theme.of(context);
 
     return DetailWidget(
-      child: Text("Gauges", style: theme.textTheme.displayLarge),
+      child: Text('Gauges', style: theme.textTheme.displayLarge),
     );
   }
 }

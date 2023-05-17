@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SourceWidget extends StatelessWidget {
+  const SourceWidget({super.key, required this.title, required this.children});
+
   final List<Widget> children;
   final String title;
-
-  const SourceWidget({super.key, required this.title, required this.children});
 
   @override
   build(BuildContext context) {
@@ -32,17 +32,17 @@ class SourceWidget extends StatelessWidget {
 }
 
 class SourceButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool selected;
-  final Function action;
-
-  const SourceButton({super.key, 
+  const SourceButton({
+    super.key,
     required this.icon,
     required this.label,
     required this.selected,
     required this.action,
   });
+  final IconData icon;
+  final String label;
+  final bool selected;
+  final Function action;
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +60,8 @@ class SourceButton extends StatelessWidget {
         borderRadius: radius,
         child: InkWell(
           borderRadius: radius,
-          onTap: () {
-            action();
-          },
+          // ignore: unnecessary_lambdas
+          onTap: () => action(),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Row(

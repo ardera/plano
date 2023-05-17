@@ -12,10 +12,10 @@ class AudioScene extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const ColoredBox(
       color: Colors.red,
-      child: const Center(
-        child: Text("Audio"),
+      child: Center(
+        child: Text('Audio'),
       ),
     );
   }

@@ -9,11 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Preference Keys
-const P_RHD = 'vehicle_rhd';
-const P_V_LEVEL = 'volume_level';
-const P_V_MUTED = 'volume_muted';
+const pVehicleRhd = 'vehicle_rhd';
+const pVolumeLevel = 'volume_level';
+const pVolumeMuted = 'volume_muted';
 
 class SettingsStore extends ChangeNotifier {
+  SettingsStore() {
+    setupPrefrences();
+  }
+
   // Vehicle Settings
   late bool isRightHandDrive = true;
 
@@ -24,23 +28,19 @@ class SettingsStore extends ChangeNotifier {
   // Preferences Storage
   late SharedPreferences preferences;
 
-  SettingsStore() {
-    setupPrefrences();
-  }
-
   void setupPrefrences() async {
     // Load up shared preferences
     preferences = await SharedPreferences.getInstance();
 
     // Set as default or from storage
-    isRightHandDrive = preferences.getBool(P_RHD) ?? isRightHandDrive;
-    volumeLevel = preferences.getInt(P_V_LEVEL) ?? volumeLevel;
-    isMuted = preferences.getBool(P_V_MUTED) ?? isMuted;
+    isRightHandDrive = preferences.getBool(pVehicleRhd) ?? isRightHandDrive;
+    volumeLevel = preferences.getInt(pVolumeLevel) ?? volumeLevel;
+    isMuted = preferences.getBool(pVolumeMuted) ?? isMuted;
     notifyListeners();
   }
 
   // Global Vehicle Settings
-  void setIsRightHandDrive(bool isRight) {
+  void setIsRightHandDrive({required bool isRight}) {
     isRightHandDrive = isRight;
     notifyListeners();
   }
@@ -48,19 +48,19 @@ class SettingsStore extends ChangeNotifier {
   // Volume Control
   void unmuteSound() {
     isMuted = false;
-    preferences.setBool(P_V_MUTED, isMuted);
-    preferences.setInt(P_V_LEVEL, volumeLevel);
+    preferences.setBool(pVolumeMuted, isMuted);
+    preferences.setInt(pVolumeLevel, volumeLevel);
     notifyListeners();
   }
 
   void toggleMute() {
     isMuted = !isMuted;
-    preferences.setBool(P_V_MUTED, isMuted);
+    preferences.setBool(pVolumeMuted, isMuted);
     notifyListeners();
   }
 
   void increaseVolume() {
-    print(volumeLevel);
+    debugPrint('$volumeLevel');
     if (volumeLevel < 30) {
       volumeLevel++;
     }

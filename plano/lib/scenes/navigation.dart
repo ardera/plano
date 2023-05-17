@@ -12,10 +12,10 @@ class NavigationScene extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const ColoredBox(
       color: Colors.pink,
-      child: const Center(
-        child: Text("Navigation Scene"),
+      child: Center(
+        child: Text('Navigation Scene'),
       ),
     );
   }

@@ -11,6 +11,8 @@ import 'package:plano/stores/settings.dart';
 import 'package:provider/provider.dart';
 
 class SceneSwitcher extends StatelessWidget {
+  const SceneSwitcher({super.key});
+
   static const iconList = [
     Icons.settings_outlined,
     Icons.directions_car_outlined,
@@ -19,65 +21,60 @@ class SceneSwitcher extends StatelessWidget {
     Icons.map_outlined,
   ];
 
-  const SceneSwitcher({super.key});
-
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
 
     return Consumer2<SceneStore, SettingsStore>(
-        builder: (context, scene, settings, child) {
-      final controls = [
-        SwitcherButton(
-          icon: Icons.settings_outlined,
-          theme: theme,
-          selected: scene.isSettingsScene(),
-          action: scene.showSettingsScene,
-        ),
-        SwitcherButton(
-          icon: Icons.directions_car_outlined,
-          theme: theme,
-          selected: scene.isVehicleScene(),
-          action: scene.showVehicleScene,
-        ),
-        SwitcherButton(
-          icon: Icons.phone_outlined,
-          theme: theme,
-          selected: scene.isTelephonyScene(),
-          action: scene.showTelephonyScene,
-        ),
-        SwitcherButton(
-          icon: Icons.music_note_outlined,
-          theme: theme,
-          selected: scene.isAudioScene(),
-          action: scene.showAudioScene,
-        ),
-        SwitcherButton(
-          icon: Icons.map_outlined,
-          theme: theme,
-          selected: scene.isNavigationScene(),
-          action: scene.showNavigationScene,
-        ),
-      ];
+      builder: (context, scene, settings, child) {
+        final controls = [
+          SwitcherButton(
+            icon: Icons.settings_outlined,
+            theme: theme,
+            selected: scene.isSettingsScene(),
+            action: scene.showSettingsScene,
+          ),
+          SwitcherButton(
+            icon: Icons.directions_car_outlined,
+            theme: theme,
+            selected: scene.isVehicleScene(),
+            action: scene.showVehicleScene,
+          ),
+          SwitcherButton(
+            icon: Icons.phone_outlined,
+            theme: theme,
+            selected: scene.isTelephonyScene(),
+            action: scene.showTelephonyScene,
+          ),
+          SwitcherButton(
+            icon: Icons.music_note_outlined,
+            theme: theme,
+            selected: scene.isAudioScene(),
+            action: scene.showAudioScene,
+          ),
+          SwitcherButton(
+            icon: Icons.map_outlined,
+            theme: theme,
+            selected: scene.isNavigationScene(),
+            action: scene.showNavigationScene,
+          ),
+        ];
 
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 80),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children:
-              settings.isRightHandDrive ? controls : controls.reversed.toList(),
-        ),
-      );
-    });
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 80),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: settings.isRightHandDrive
+                ? controls
+                : controls.reversed.toList(),
+          ),
+        );
+      },
+    );
   }
 }
 
 class SwitcherButton extends StatelessWidget {
-  final IconData icon;
-  final bool selected;
-  final ThemeData theme;
-  final Function action;
-
   const SwitcherButton({
     super.key,
     required this.icon,
@@ -85,6 +82,11 @@ class SwitcherButton extends StatelessWidget {
     required this.selected,
     required this.action,
   });
+
+  final IconData icon;
+  final bool selected;
+  final ThemeData theme;
+  final Function action;
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +104,8 @@ class SwitcherButton extends StatelessWidget {
         borderRadius: radius,
         child: InkWell(
           borderRadius: radius,
-          onTap: () {
-            action();
-          },
+          // ignore: unnecessary_lambdas
+          onTap: () => action(),
           child: Icon(icon, color: foreground, size: 36),
         ),
       ),

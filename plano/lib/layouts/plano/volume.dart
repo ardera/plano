@@ -14,36 +14,38 @@ class VolumeControl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SettingsStore>(builder: (context, settings, child) {
-      final icon = (settings.isMuted)
-          ? Icons.volume_off_rounded
-          : Icons.volume_up_rounded;
+    return Consumer<SettingsStore>(
+      builder: (context, settings, child) {
+        final icon = (settings.isMuted)
+            ? Icons.volume_off_rounded
+            : Icons.volume_up_rounded;
 
-      return Container(
-        width: 250,
-        padding: const EdgeInsets.only(left: 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                VolumeButton(Icons.remove, settings.decreaseVolume),
-                VolumeButton(icon, settings.toggleMute),
-                VolumeButton(Icons.add, settings.increaseVolume),
-              ],
-            ),
-          ],
-        ),
-      );
-    });
+        return Container(
+          width: 250,
+          padding: const EdgeInsets.only(left: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  VolumeButton(Icons.remove, settings.decreaseVolume),
+                  VolumeButton(icon, settings.toggleMute),
+                  VolumeButton(Icons.add, settings.increaseVolume),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
 class VolumeButton extends StatelessWidget {
+  const VolumeButton(this.icon, this.action, {super.key});
+
   final IconData icon;
   final Function action;
-
-  const VolumeButton(this.icon, this.action, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +58,8 @@ class VolumeButton extends StatelessWidget {
       child: Material(
         color: bottomAppBarTheme.color,
         child: InkWell(
-          onTap: () {
-            action();
-          },
+          // ignore: unnecessary_lambdas
+          onTap: () => action(),
           borderRadius: BorderRadius.circular(6),
           child: Icon(
             icon,

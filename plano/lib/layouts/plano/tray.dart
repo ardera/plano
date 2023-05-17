@@ -14,36 +14,38 @@ import 'package:plano/stores/settings.dart';
 import 'package:provider/provider.dart';
 
 // Padding to edge of display
-const K_PAD_EDGE = 30.0;
+const kPadEdge = 30.0;
 
 // Padding between time and icons
-const K_PAD_INNER = 17.0;
+const kPadInner = 17.0;
 
 class Tray extends StatelessWidget {
   const Tray({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SettingsStore>(builder: (builder, settings, child) {
-      final widgets = [
-        const Expanded(child: TrayDateTime()),
-        const TrayStatus(),
-      ];
+    return Consumer<SettingsStore>(
+      builder: (builder, settings, child) {
+        final widgets = [
+          const Expanded(child: TrayDateTime()),
+          const TrayStatus(),
+        ];
 
-      return Container(
-        width: 250,
-        padding: const EdgeInsets.only(left: K_PAD_EDGE, right: K_PAD_EDGE),
-        child: Row(
-            children: settings.isRightHandDrive
-                ? widgets
-                : widgets.reversed.toList()),
-      );
-    });
+        return Container(
+          width: 250,
+          padding: const EdgeInsets.only(left: kPadEdge, right: kPadEdge),
+          child: Row(
+            children:
+                settings.isRightHandDrive ? widgets : widgets.reversed.toList(),
+          ),
+        );
+      },
+    );
   }
 }
 
 class TrayDateTime extends StatefulWidget {
-  const TrayDateTime({Key? key}) : super(key: key);
+  const TrayDateTime({super.key});
 
   @override
   _TrayDateTimeState createState() => _TrayDateTimeState();
@@ -63,10 +65,11 @@ class _TrayDateTimeState extends State<TrayDateTime> {
     setState(() {
       _now = DateTime.now();
       _timer = Timer(
-          const Duration(minutes: 1) -
-              Duration(seconds: _now.second) -
-              Duration(milliseconds: _now.millisecond),
-          _updateClock);
+        const Duration(minutes: 1) -
+            Duration(seconds: _now.second) -
+            Duration(milliseconds: _now.millisecond),
+        _updateClock,
+      );
     });
   }
 
@@ -78,30 +81,32 @@ class _TrayDateTimeState extends State<TrayDateTime> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SettingsStore>(builder: (builder, settings, child) {
-      TextTheme style = Theme.of(context).textTheme;
+    return Consumer<SettingsStore>(
+      builder: (builder, settings, child) {
+        final style = Theme.of(context).textTheme;
 
-      final alignment = (settings.isRightHandDrive)
-          ? CrossAxisAlignment.end
-          : CrossAxisAlignment.start;
+        final alignment = (settings.isRightHandDrive)
+            ? CrossAxisAlignment.end
+            : CrossAxisAlignment.start;
 
-      return Container(
-        padding: const EdgeInsets.only(left: K_PAD_INNER, right: K_PAD_INNER),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: alignment,
-          children: [
-            Text(
-              DateFormat("h:mm a").format(_now),
-              style: style.headlineSmall,
-            ),
-            Text(
-              DateFormat("E d").format(_now).toUpperCase(),
-              style: style.titleLarge,
-            ),
-          ],
-        ),
-      );
-    });
+        return Container(
+          padding: const EdgeInsets.only(left: kPadInner, right: kPadInner),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: alignment,
+            children: [
+              Text(
+                DateFormat('h:mm a').format(_now),
+                style: style.headlineSmall,
+              ),
+              Text(
+                DateFormat('E d').format(_now).toUpperCase(),
+                style: style.titleLarge,
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

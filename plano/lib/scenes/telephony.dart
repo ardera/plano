@@ -12,10 +12,10 @@ class TelephonyScene extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const ColoredBox(
       color: Colors.green,
-      child: const Center(
-        child: Text("Telephony"),
+      child: Center(
+        child: Text('Telephony'),
       ),
     );
   }

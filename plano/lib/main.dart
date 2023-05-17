@@ -8,14 +8,16 @@ import 'package:plano/stores/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (context) => DirectorStore()),
-      ChangeNotifierProvider(create: (context) => SceneStore()),
-      ChangeNotifierProvider(create: (context) => ThemeStore()),
-      ChangeNotifierProvider(create: (context) => SettingsStore()),
-      ChangeNotifierProvider(create: (context) => NetworkStore()),
-    ],
-    child: const PlanoApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => DirectorStore()),
+        ChangeNotifierProvider(create: (context) => SceneStore()),
+        ChangeNotifierProvider(create: (context) => ThemeStore()),
+        ChangeNotifierProvider(create: (context) => SettingsStore()),
+        ChangeNotifierProvider(create: (context) => NetworkStore()),
+      ],
+      child: const PlanoApp(),
+    ),
+  );
 }

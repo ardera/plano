@@ -32,11 +32,11 @@ class _SettingsScene extends State<SettingsScene> {
   Widget build(BuildContext context) {
     return SplitViewWidget(
       source: SourceWidget(
-        title: "Settings",
+        title: 'Settings',
         children: [
           SourceButton(
             icon: Icons.bluetooth,
-            label: "Bluetooth",
+            label: 'Bluetooth',
             selected: _index == 0,
             action: () {
               setIndex(0);
@@ -44,7 +44,7 @@ class _SettingsScene extends State<SettingsScene> {
           ),
           SourceButton(
             icon: Icons.info_outline,
-            label: "About",
+            label: 'About',
             selected: _index == 1,
             action: () {
               setIndex(1);

@@ -9,7 +9,7 @@ class SettingsAboutDetail extends StatelessWidget {
     final theme = Theme.of(context);
 
     return DetailWidget(
-      child: Text("About", style: theme.textTheme.displayLarge),
+      child: Text('About', style: theme.textTheme.displayLarge),
     );
   }
 }

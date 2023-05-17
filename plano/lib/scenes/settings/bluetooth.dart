@@ -9,7 +9,7 @@ class SettingsBluetoothDetail extends StatelessWidget {
     final theme = Theme.of(context);
 
     return DetailWidget(
-      child: Text("Bluetooth", style: theme.textTheme.displayLarge),
+      child: Text('Bluetooth', style: theme.textTheme.displayLarge),
     );
   }
 }

@@ -4,11 +4,14 @@ import 'package:plano/widgets/source.dart';
 import 'package:provider/provider.dart';
 
 class SplitViewWidget extends StatelessWidget {
+  const SplitViewWidget({
+    super.key,
+    required this.source,
+    required this.detail,
+  });
+
   final SourceWidget source;
   final Widget detail;
-
-  const SplitViewWidget(
-      {super.key, required this.source, required this.detail});
 
   @override
   build(BuildContext context) {

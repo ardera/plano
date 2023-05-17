@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailWidget extends StatelessWidget {
-  final Widget child;
-
   const DetailWidget({super.key, required this.child});
+
+  final Widget child;
 
   @override
   build(BuildContext context) {

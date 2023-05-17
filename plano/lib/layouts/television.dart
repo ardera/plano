@@ -32,7 +32,7 @@ class TelevisionLayout extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              var director = context.read<DirectorStore>();
+              final director = context.read<DirectorStore>();
               director.hideSleepLayout();
             },
             child: const Text('Hide Television'),

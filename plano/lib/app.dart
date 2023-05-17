@@ -17,12 +17,14 @@ class PlanoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeStore>(builder: (context, store, child) {
-      return MaterialApp(
-        title: "Plano",
-        theme: store.theme,
-        home: const DirectorControl(),
-      );
-    });
+    return Consumer<ThemeStore>(
+      builder: (context, store, child) {
+        return MaterialApp(
+          title: 'Plano',
+          theme: store.theme,
+          home: const DirectorControl(),
+        );
+      },
+    );
   }
 }

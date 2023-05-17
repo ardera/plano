@@ -31,33 +31,34 @@ class _VehicleScene extends State<VehicleScene> {
   @override
   Widget build(BuildContext context) {
     return SplitViewWidget(
-        source: SourceWidget(
-          title: "Vehicle",
-          children: [
-            SourceButton(
-              icon: Icons.speed_outlined,
-              label: "Gauges",
-              selected: _index == 0,
-              action: () {
-                setIndex(0);
-              },
-            ),
-            SourceButton(
-              icon: Icons.multiline_chart_outlined,
-              label: "TPMS",
-              selected: _index == 1,
-              action: () {
-                setIndex(1);
-              },
-            ),
-          ],
-        ),
-        detail: IndexedStack(
-          index: _index,
-          children: const [
-            VehicleGaugesDetail(),
-            VehicleTPMSDetail(),
-          ],
-        ));
+      source: SourceWidget(
+        title: 'Vehicle',
+        children: [
+          SourceButton(
+            icon: Icons.speed_outlined,
+            label: 'Gauges',
+            selected: _index == 0,
+            action: () {
+              setIndex(0);
+            },
+          ),
+          SourceButton(
+            icon: Icons.multiline_chart_outlined,
+            label: 'TPMS',
+            selected: _index == 1,
+            action: () {
+              setIndex(1);
+            },
+          ),
+        ],
+      ),
+      detail: IndexedStack(
+        index: _index,
+        children: const [
+          VehicleGaugesDetail(),
+          VehicleTPMSDetail(),
+        ],
+      ),
+    );
   }
 }

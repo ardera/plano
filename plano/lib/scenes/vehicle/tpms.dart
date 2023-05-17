@@ -9,7 +9,7 @@ class VehicleTPMSDetail extends StatelessWidget {
     final theme = Theme.of(context);
 
     return DetailWidget(
-      child: Text("TPMS", style: theme.textTheme.displayLarge),
+      child: Text('TPMS', style: theme.textTheme.displayLarge),
     );
   }
 }
