@@ -7,6 +7,8 @@ import 'package:plano/stores/director.dart';
 import 'package:provider/provider.dart';
 
 class DirectorControl extends StatelessWidget {
+  const DirectorControl({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,7 @@ class DirectorControl extends StatelessWidget {
           builder: (context, director, child) {
             return IndexedStack(
               index: director.index,
-              children: [
+              children: const [
                 PlanoLayout(),
                 TelevisionLayout(),
                 OnCallLayout(),

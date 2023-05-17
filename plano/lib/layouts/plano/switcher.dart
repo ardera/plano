@@ -18,6 +18,8 @@ class SceneSwitcher extends StatelessWidget {
     Icons.music_note_outlined,
     Icons.map_outlined,
   ];
+
+  const SceneSwitcher({super.key});
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -58,7 +60,7 @@ class SceneSwitcher extends StatelessWidget {
       ];
 
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 80),
+        padding: const EdgeInsets.symmetric(horizontal: 80),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children:
@@ -75,7 +77,7 @@ class SwitcherButton extends StatelessWidget {
   final ThemeData theme;
   final Function action;
 
-  SwitcherButton({
+  const SwitcherButton({super.key, 
     required this.icon,
     required this.theme,
     required this.selected,
@@ -87,7 +89,7 @@ class SwitcherButton extends StatelessWidget {
     final radius = BorderRadius.circular(6);
     final background = selected ? Colors.white : theme.bottomAppBarColor;
     final foreground = selected ? theme.bottomAppBarColor : Colors.white;
-    return Container(
+    return SizedBox(
       height: 60,
       width: 80,
       child: Material(

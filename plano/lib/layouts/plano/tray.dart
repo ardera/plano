@@ -20,17 +20,19 @@ const K_PAD_EDGE = 30.0;
 const K_PAD_INNER = 17.0;
 
 class Tray extends StatelessWidget {
+  const Tray({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsStore>(builder: (builder, settings, child) {
       final widgets = [
-        Expanded(child: TrayDateTime()),
-        TrayStatus(),
+        const Expanded(child: TrayDateTime()),
+        const TrayStatus(),
       ];
 
       return Container(
         width: 250,
-        padding: EdgeInsets.only(left: K_PAD_EDGE, right: K_PAD_EDGE),
+        padding: const EdgeInsets.only(left: K_PAD_EDGE, right: K_PAD_EDGE),
         child: Row(
             children: settings.isRightHandDrive
                 ? widgets
@@ -41,7 +43,7 @@ class Tray extends StatelessWidget {
 }
 
 class TrayDateTime extends StatefulWidget {
-  TrayDateTime({Key? key}) : super(key: key);
+  const TrayDateTime({Key? key}) : super(key: key);
 
   @override
   _TrayDateTimeState createState() => _TrayDateTimeState();
@@ -61,7 +63,7 @@ class _TrayDateTimeState extends State<TrayDateTime> {
     setState(() {
       _now = DateTime.now();
       _timer = Timer(
-          Duration(minutes: 1) -
+          const Duration(minutes: 1) -
               Duration(seconds: _now.second) -
               Duration(milliseconds: _now.millisecond),
           _updateClock);
@@ -84,18 +86,18 @@ class _TrayDateTimeState extends State<TrayDateTime> {
           : CrossAxisAlignment.start;
 
       return Container(
-        padding: EdgeInsets.only(left: K_PAD_INNER, right: K_PAD_INNER),
+        padding: const EdgeInsets.only(left: K_PAD_INNER, right: K_PAD_INNER),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: alignment,
           children: [
             Text(
               DateFormat("h:mm a").format(_now),
-              style: style.headline5,
+              style: style.headlineSmall,
             ),
             Text(
               DateFormat("E d").format(_now).toUpperCase(),
-              style: style.headline6,
+              style: style.titleLarge,
             ),
           ],
         ),

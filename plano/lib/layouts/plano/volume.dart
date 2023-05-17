@@ -10,6 +10,8 @@ import 'package:plano/stores/settings.dart';
 import 'package:provider/provider.dart';
 
 class VolumeControl extends StatelessWidget {
+  const VolumeControl({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsStore>(builder: (context, settings, child) {
@@ -19,7 +21,7 @@ class VolumeControl extends StatelessWidget {
 
       return Container(
         width: 250,
-        padding: EdgeInsets.only(left: 30),
+        padding: const EdgeInsets.only(left: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -41,7 +43,7 @@ class VolumeButton extends StatelessWidget {
   final IconData icon;
   final Function action;
 
-  VolumeButton(this.icon, this.action);
+  const VolumeButton(this.icon, this.action, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class VolumeButton extends StatelessWidget {
     return Container(
       height: 52,
       width: 52,
-      margin: EdgeInsets.only(right: 15),
+      margin: const EdgeInsets.only(right: 15),
       child: Material(
         color: theme.bottomAppBarColor,
         child: InkWell(

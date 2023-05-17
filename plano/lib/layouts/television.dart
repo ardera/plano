@@ -10,6 +10,8 @@ import 'package:plano/stores/director.dart';
 import 'package:provider/provider.dart';
 
 class TelevisionLayout extends StatelessWidget {
+  const TelevisionLayout({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,15 +19,15 @@ class TelevisionLayout extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: Text(
-              'Television',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(Radius.circular(10)),
               color: Colors.blue,
+            ),
+            child: Text(
+              'Television',
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           TextButton(
@@ -33,7 +35,7 @@ class TelevisionLayout extends StatelessWidget {
               var director = context.read<DirectorStore>();
               director.hideSleepLayout();
             },
-            child: Text('Hide Television'),
+            child: const Text('Hide Television'),
           ),
         ],
       ),

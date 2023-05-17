@@ -8,11 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:plano/scenes/vehicle/gauges.dart';
 import 'package:plano/scenes/vehicle/tpms.dart';
-import 'package:plano/widgets/detail.dart';
 import 'package:plano/widgets/source.dart';
 import 'package:plano/widgets/split.dart';
 
 class VehicleScene extends StatefulWidget {
+  const VehicleScene({super.key});
+
   @override
   _VehicleScene createState() => _VehicleScene();
 }
@@ -53,7 +54,7 @@ class _VehicleScene extends State<VehicleScene> {
         ),
         detail: IndexedStack(
           index: _index,
-          children: [
+          children: const [
             VehicleGaugesDetail(),
             VehicleTPMSDetail(),
           ],

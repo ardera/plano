@@ -16,6 +16,6 @@ void main() {
       ChangeNotifierProvider(create: (context) => SettingsStore()),
       ChangeNotifierProvider(create: (context) => NetworkStore()),
     ],
-    child: PlanoApp(),
+    child: const PlanoApp(),
   ));
 }

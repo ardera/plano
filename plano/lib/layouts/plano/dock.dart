@@ -16,13 +16,15 @@ import 'package:plano/stores/settings.dart';
 import 'package:provider/provider.dart';
 
 class Dock extends StatelessWidget {
+  const Dock({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsStore>(builder: (context, settings, child) {
       final widgets = [
-        VolumeControl(),
-        Expanded(child: SceneSwitcher()),
-        Tray(),
+        const VolumeControl(),
+        const Expanded(child: SceneSwitcher()),
+        const Tray(),
       ];
 
       return Container(

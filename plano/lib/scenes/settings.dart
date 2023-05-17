@@ -12,6 +12,8 @@ import 'package:plano/widgets/source.dart';
 import 'package:plano/widgets/split.dart';
 
 class SettingsScene extends StatefulWidget {
+  const SettingsScene({super.key});
+
   @override
   _SettingsScene createState() => _SettingsScene();
 }
@@ -53,7 +55,7 @@ class _SettingsScene extends State<SettingsScene> {
       detail: Container(
         child: IndexedStack(
           index: _index,
-          children: [
+          children: const [
             SettingsBluetoothDetail(),
             SettingsAboutDetail(),
           ],

@@ -7,7 +7,7 @@ class SplitViewWidget extends StatelessWidget {
   final SourceWidget source;
   final Widget detail;
 
-  SplitViewWidget({required this.source, required this.detail});
+  const SplitViewWidget({super.key, required this.source, required this.detail});
 
   @override
   build(BuildContext context) {

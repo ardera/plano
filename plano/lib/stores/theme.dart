@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
 class ThemeStore extends ChangeNotifier {
-  static TextTheme text = TextTheme(
+  static TextTheme text = const TextTheme(
     // Source/Detail Title
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       fontSize: 40,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
     // Dock Time
-    headline5: TextStyle(
+    headlineSmall: TextStyle(
       fontSize: 26,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
     // Dock Date
-    headline6: TextStyle(
+    titleLarge: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: Colors.white70,
     ),
     // Generic Themed Buttons
-    button: TextStyle(
+    labelLarge: TextStyle(
       fontSize: 22,
       fontWeight: FontWeight.bold,
     ),
@@ -29,28 +29,18 @@ class ThemeStore extends ChangeNotifier {
 
   static ThemeData light = ThemeData(
     // Source View
-    primaryColorLight: Color(0xFFECEFF1),
+    primaryColorLight: const Color(0xFFECEFF1),
     // Text / Active Buttons
-    primaryColor: Color(0xFF37474F),
-
-    // Old...
-    primaryColorBrightness: Brightness.light,
-    accentColor: Colors.black,
-    accentColorBrightness: Brightness.dark,
-    primaryColorDark: Color(0xfff2f2f6),
+    primaryColor: const Color(0xFF37474F),
+    primaryColorDark: const Color(0xfff2f2f6),
 
     // Text Styling
-    textTheme: text,
-    // Dock
-    bottomAppBarColor: Color(0xFF263238),
+    textTheme: text, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.black), bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xFF263238)),
   );
 
   static ThemeData dark = light.copyWith(
     primaryColor: Colors.black,
-    primaryColorBrightness: Brightness.dark,
-    accentColor: Colors.white,
-    accentColorBrightness: Brightness.light,
-    primaryColorDark: Color(0xff1c1c1e),
+    primaryColorDark: const Color(0xff1c1c1e), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
   );
 
   ThemeData theme = light;

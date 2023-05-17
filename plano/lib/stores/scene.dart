@@ -17,12 +17,12 @@ class SceneStore extends ChangeNotifier {
   // Start with navigation present
   int index = 4;
 
-  bool isSelected(int test_index) {
-    return test_index == index;
+  bool isSelected(int testIndex) {
+    return testIndex == index;
   }
 
-  void setNewIndex(int new_index) {
-    index = new_index;
+  void setNewIndex(int newIndex) {
+    index = newIndex;
     notifyListeners();
   }
 

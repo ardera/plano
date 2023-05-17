@@ -3,10 +3,12 @@ import 'package:plano/stores/network.dart';
 import 'package:provider/provider.dart';
 
 class TrayStatus extends StatelessWidget {
+  const TrayStatus({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TrayStatusReception(),
@@ -18,6 +20,8 @@ class TrayStatus extends StatelessWidget {
 }
 
 class TrayStatusReception extends StatelessWidget {
+  const TrayStatusReception({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<NetworkStore>(builder: (context, network, child) {
@@ -38,7 +42,7 @@ class TrayStatusReception extends StatelessWidget {
       return Container(
         height: 24,
         width: 24,
-        margin: EdgeInsets.only(bottom: 5),
+        margin: const EdgeInsets.only(bottom: 5),
         child: Icon(
           icon,
           color: Colors.white,
@@ -50,6 +54,8 @@ class TrayStatusReception extends StatelessWidget {
 }
 
 class TrayStatusBluetooth extends StatelessWidget {
+  const TrayStatusBluetooth({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<NetworkStore>(builder: (context, network, child) {
@@ -67,7 +73,7 @@ class TrayStatusBluetooth extends StatelessWidget {
           break;
       }
 
-      return Container(
+      return SizedBox(
         height: 24,
         width: 24,
         child: Icon(

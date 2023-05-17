@@ -13,13 +13,15 @@ import 'package:provider/provider.dart';
 */
 
 class PlanoApp extends StatelessWidget {
+  const PlanoApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeStore>(builder: (context, store, child) {
       return MaterialApp(
         title: "Plano",
         theme: store.theme,
-        home: DirectorControl(),
+        home: const DirectorControl(),
       );
     });
   }

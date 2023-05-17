@@ -4,24 +4,24 @@ class SourceWidget extends StatelessWidget {
   final List<Widget> children;
   final String title;
 
-  SourceWidget({required this.title, required this.children});
+  const SourceWidget({super.key, required this.title, required this.children});
 
   @override
   build(BuildContext context) {
     final theme = Theme.of(context);
-    final text = theme.textTheme.headline1?.copyWith(
+    final text = theme.textTheme.displayLarge?.copyWith(
       color: theme.primaryColor,
     );
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 60, horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
       width: 336,
       color: theme.primaryColorLight,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(bottom: 50, left: 12),
+            padding: const EdgeInsets.only(bottom: 50, left: 12),
             child: Text(title, style: text),
           ),
           ...children,
@@ -37,7 +37,7 @@ class SourceButton extends StatelessWidget {
   final bool selected;
   final Function action;
 
-  SourceButton({
+  const SourceButton({super.key, 
     required this.icon,
     required this.label,
     required this.selected,
@@ -50,11 +50,11 @@ class SourceButton extends StatelessWidget {
     final radius = BorderRadius.circular(6);
     final background = selected ? theme.primaryColor : theme.primaryColorLight;
     final foreground = selected ? Colors.white : theme.primaryColor;
-    final text = theme.textTheme.button?.copyWith(color: foreground);
+    final text = theme.textTheme.labelLarge?.copyWith(color: foreground);
 
     return Container(
       height: 60,
-      margin: EdgeInsets.only(bottom: 22),
+      margin: const EdgeInsets.only(bottom: 22),
       child: Material(
         color: background,
         borderRadius: radius,
@@ -64,11 +64,11 @@ class SourceButton extends StatelessWidget {
             action();
           },
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Row(
               children: [
                 Container(
-                  margin: EdgeInsets.only(right: 22),
+                  margin: const EdgeInsets.only(right: 22),
                   child: Icon(icon, color: foreground, size: 36),
                 ),
                 Text(label, style: text),

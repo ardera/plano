@@ -13,10 +13,12 @@ import 'package:plano/layouts/plano/stage.dart';
 */
 
 class PlanoLayout extends StatelessWidget {
+  const PlanoLayout({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(child: Stage()),

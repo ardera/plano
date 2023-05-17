@@ -17,6 +17,8 @@ import 'package:plano/scenes/vehicle.dart';
 import 'package:plano/stores/scene.dart';
 
 class Stage extends StatelessWidget {
+  const Stage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +26,7 @@ class Stage extends StatelessWidget {
         builder: (context, scene, child) {
           return IndexedStack(
             index: scene.index,
-            children: [
+            children: const [
               SettingsScene(),
               VehicleScene(),
               TelephonyScene(),
